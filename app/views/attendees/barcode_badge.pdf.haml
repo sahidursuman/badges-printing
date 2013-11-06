@@ -1,0 +1,52 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    :css
+      body {
+        margin:0;
+        padding:0;
+      }
+
+      .container {
+        padding: 0;
+        padding-top: 170px;
+        width: 300px;
+        height: 340px;
+        float:left;
+        text-align: center;
+        font-weight: bolder;
+      }
+
+      .names {
+        font-size: 35px;
+      }
+
+      .company_name {
+        margin-top: 20px;
+        font-size: 20px;
+        height: 90px;
+      }
+
+      .uniq_id {
+        margin-bottom: 0px;
+        font-size: 10px;
+      }
+
+      .barcode {
+        position: fixed;
+        bottom: 0;
+        margin: 0;
+      }
+
+  %body
+    .container
+      .names
+        = attendee.firstname.capitalize
+        %br
+        = attendee.lastname.capitalize
+      .company_name= attendee.company_name
+      .barcode
+        .uniq_id= attendee.uniq_id
+        .wrap{ style:"margin-left:15px; margin-bottom:-10px;" }
+          = image_tag(attendee.get_barcode, size:"270x100")

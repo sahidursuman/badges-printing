@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    :css
+      body {
+        margin:0;
+        padding:0;
+      }
+
+      .container {
+        padding: 0;
+        padding-top: 220px;
+        width: 300px;
+        float:left;
+        text-align: center;
+        font-weight: bolder;
+      }
+
+      .names {
+        font-size: 35px;
+      }
+
+  %body
+    .container
+      .names
+        = attendee.firstname.capitalize
+        %br
+        = attendee.lastname.capitalize
